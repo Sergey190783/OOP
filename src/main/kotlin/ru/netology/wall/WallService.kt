@@ -3,7 +3,7 @@ package ru.netology.wall
 import ru.netology.post.*
 
 class WallService(var posts: Array<Post>) {
-    private var curId = 0
+    //private var curId = 0
     fun add(post: Post): Post {
         val mutablePosts = posts.toMutableList()
         val newPost = post.copy(id = curId)
