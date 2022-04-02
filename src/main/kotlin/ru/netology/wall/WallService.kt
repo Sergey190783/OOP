@@ -4,6 +4,7 @@ import ru.netology.post.*
 
 class WallService(var posts: Array<Post>) {
     private var curId = 0
+       fun getId() =this.curId
     fun add(post: Post): Post {
         val mutablePosts = posts.toMutableList()
         val newPost = post.copy(id = curId)
@@ -13,6 +14,9 @@ class WallService(var posts: Array<Post>) {
         return newPost
     }
 
+    /**
+     * Обновление записи по id
+     */
     fun update(post: Post): Boolean {
         val index = posts.indexOfFirst { p -> p.id == post.id }
         if (index != -1) {
