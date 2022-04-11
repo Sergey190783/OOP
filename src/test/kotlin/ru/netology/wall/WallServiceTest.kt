@@ -11,7 +11,7 @@ internal class WallServiceTest {
 
     @BeforeEach
     fun setUp() {
-        wallService = WallService(arrayOf())
+        wallService = WallService()
     }
 
     @Test
@@ -45,7 +45,7 @@ internal class WallServiceTest {
             )
         )
 
-        assertEquals(1, wallService.getId())
+        assertEquals(1, wallService.getPost(0).id)
     }
 
     @Test
@@ -81,7 +81,7 @@ internal class WallServiceTest {
 
         val result = wallService.update(
             Post(
-                0,
+                1,
                 12,
                 33,
                 35,
@@ -107,7 +107,7 @@ internal class WallServiceTest {
                 11
             )
         )
-        assertEquals("РАКЕТА", wallService.posts[0].text)
+        assertEquals("РАКЕТА", wallService.getPost(0).text)
         assertTrue(result)
     }
 
@@ -144,7 +144,7 @@ internal class WallServiceTest {
 
         val result = wallService.update(
             Post(
-                1,
+                0,
                 12,
                 33,
                 35,
